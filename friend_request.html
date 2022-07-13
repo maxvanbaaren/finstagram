@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/friend_request_auth" method="POST">
+    <input type="text" name = "followee" placeholder="add friend" required/> </br>
+    <input type="submit" value = Request />
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}}</p>
+    {% endif %}
+</form>
+<a href="/home">Go back</a>
+</body>
+</html>

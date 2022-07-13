@@ -1,0 +1,59 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Welcome {{username}}</h1>
+<!-- <form action="/friend_request" method="POST">
+	<h1>Welcome {{username}}</h1> 
+	<input type="text" name = "followee" placeholder="add friend" required/> </br>
+	<input type="submit" value = Request />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form> -->
+
+Friend Requests:
+<ul>
+{% for line in requests %}
+	{{line.follower}}
+	<form action="/request_accepted" method="POST">
+		<button type="submit" name="action" value={{line.follower}} >Accept</button>
+	</form>
+	<form action="/request_rejected" method="POST">
+		<button type="submit" name="action" value={{line.follower}} >Reject</button>
+	</form>
+{% endfor %}
+</ul>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+Here are your posts:
+<table>
+	<th>Date</th>
+	<th>Picture</th>
+
+{% for line in posts %}
+	<tr>
+		<td>{{line.postingDate}}</td>
+		<td>{{line.pid}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+
+<a href="/upload_photo">Upload a Photo</a>
+<br>
+<a href="/friend_request">Follow a Friend</a>
+<br>
+<a href="/friend_group">Make Friend Group</a>
+<br>
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>

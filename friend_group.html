@@ -1,0 +1,15 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/friend_group_auth" method="POST">
+	<input type="text" name = "group_name" placeholder="group name" required/> </br>
+	<input type="text" name = "description" placeholder="description" required/></br>
+	<input type="submit" value = Create />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/home">Go back</a>
+</body>
+</html>
